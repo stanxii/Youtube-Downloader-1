@@ -1,0 +1,18 @@
+#loading {
+	animation: fade 1s;
+}
+
+@keyframes fade {
+    0% {
+    	opacity: 0;
+    }
+    100%{
+    	opacity: 1;
+    }
+}
+
+#gitbuttons{
+	position: relative;
+	left: 33%;
+	width: 50%;
+}

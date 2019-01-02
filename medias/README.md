@@ -1,0 +1,1 @@
+This folder is were videos are temp saved, the app will crash in prod if it's not here.
