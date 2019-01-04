@@ -12,20 +12,20 @@ export default (props) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<fieldset disabled={!!props.convertInProgress}>
-					<div className="row">
-						<div className="col-md-8 col-12">
-							<div className="form-group">
-								<input type="text" name="video" className="form-control form-control-sm" placeholder="https://www.youtube.com/watch?v=EqPtz5qN7HM"/>
-							</div>
-						</div>
-						<div className="col-md-4 col-12">
-							<div className="form-group">
-								<button type="submit" className="btn btn-outline-light btn-block btn-sm" >Convert</button>
-							</div>
-						</div>
-					</div>
-				</fieldset>
-			</form>
+				<div className="row">
+		       		<div className="col-md-9 col-8">
+		       			<div className="form-group">
+		          		<input className="form-control" type="text" name="video" placeholder="https://www.youtube.com/watch?v=yca6UsllwYs" />
+		         		</div>
+		         	</div>
+		            <div className="col-md-3 col-4">
+		            	<div className="form-group">
+		                <input className="btn btn-danger btn-block" type="submit" value="Convert" />
+		            	</div>
+		            </div>
+	        	</div>
+	        	</fieldset>
+        	</form>
 		</div>
 	);
 }

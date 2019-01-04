@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './App.css';
 import axios from 'axios';
-import Search from './Search/Search';
 import Header from './Header/Header';
 import VideoInfo from './VideoInfo/VideoInfo';
 import Loading from './Loading/Loading';
+import Errors from './Errors/Errors';
 
 
 class App extends Component {
@@ -74,49 +75,32 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-5"> 
-            <Header />
+        <div>
+          <div id="top" className="gradient">
+            <div className="container">
+                <Header handleConvert={this.handleConvert} convertInProgress={this.state.convertInProgress} />
+            </div>
+          </div>
+          <div id="bottom">
+            <div className="container">
+                {this.state.convertInProgress && (
+                    <div className="row justify-content-center">
+                      <div className="col-2 col-md-1">            
+                          <Loading />
+                      </div>
+                    </div>
+                )}
+                {this.state.errors !== 0 && (
+                  <Errors errors={this.state.errors} />
+                )}
+                <VideoInfo 
+                  title={this.state.title} 
+                  link={this.state.link} 
+                  id={this.state.id}
+                />
+            </div>
           </div>
         </div>
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-5">
-            <Search 
-                    handleConvert={this.handleConvert} 
-                    convertInProgress={this.state.convertInProgress} 
-            />
-          </div>
-        </div>
-        {this.state.errors !== 0 && (
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-5">            
-              {this.state.errors.map((error) => (
-                  <p key={error} className="text-center">{error}</p>
-              ))}
-          </div>
-        </div>
-        )}
-        {this.state.convertInProgress && (
-        <div className="row justify-content-center">
-          <div className="col-2 col-md-1">            
-              <Loading />
-          </div>
-        </div>
-        )}
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-5">
-            {(this.state.id && !this.state.convertInProgress) && (
-              <VideoInfo 
-                        thumbnail={this.state.thumbnail} 
-                        title={this.state.title} 
-                        link={this.state.link} 
-                        id={this.state.id}
-              />
-            )}
-          </div>
-        </div>
-      </div>
     );
   }
 }
