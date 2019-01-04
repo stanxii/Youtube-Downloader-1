@@ -2,7 +2,7 @@
 
 NodeJS / Express / React website that allow you to download youtube's videos using ytdl-core.
 
-![alt text](display.PNG)
+![alt text](display.JPG)
 
 ## Install
 
